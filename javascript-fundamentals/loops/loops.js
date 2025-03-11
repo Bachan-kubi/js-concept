@@ -54,19 +54,25 @@
 
 // for loop for(begin, condition, step){}
 // increment
-for(i=0; i<10; i++){
-  console.log(i);
+// for(i=0; i<10; i++){
+//   console.log(i);
+// }
+// // decrement
+// for(i=10; i>0; i--){
+//   console.log(i);
+// }
+// let a = 0;
+// for(;a<5; a++){
+//   console.log("method-2", a)
+// }
+let p = 5;
+for(; p<15;p+=3){
+  if(p%2===0){
+    break
+    // continue; to skip a given conditon 
+  };
+console.log("method-3", p);
 }
-// decrement
-for(i=10; i>0; i--){
-  console.log(i);
-}
-let a = 0;
-for(;a<5; a++){
-  console.log("method-2", a)
-}
-let p = 0;
-for(; p<5;){
-console.log("method-3",p++);
-}
+
+// we can force the exit from iteration of loops
 
