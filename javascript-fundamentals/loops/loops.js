@@ -40,15 +40,33 @@
 // do while loop- The loop will firt execute the body then check the conditons. 
 
 
-let i = 2;
-do{
-  i++;
-  console.log(i)
-}while(i<5);
+// let i = 2;
+// do{
+//   i++;
+//   console.log(i)
+// }while(i<5);
 
-let p = 5;
-do{
-  p--;
-  console.log(p);
-}while(p>1);
+// let p = 5;
+// do{
+//   p--;
+//   console.log(p);
+// }while(p>1);
+
+// for loop for(begin, condition, step){}
+// increment
+for(i=0; i<10; i++){
+  console.log(i);
+}
+// decrement
+for(i=10; i>0; i--){
+  console.log(i);
+}
+let a = 0;
+for(;a<5; a++){
+  console.log("method-2", a)
+}
+let p = 0;
+for(; p<5;){
+console.log("method-3",p++);
+}
 
