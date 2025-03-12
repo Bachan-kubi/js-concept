@@ -88,4 +88,13 @@ let q = 0;
 while(++q<5) console.log("prefix",q)
 
 let p = 0;
-while(p++<5) console.log("postfix",p)
+while(p++<5) console.log("postfix",p);
+
+//3
+for(o=0; o<5; o++)console.log("first",o);
+for(i=0; i<5; ++i)console.log("second",i);
+for(let m=2; m<10; m++){
+  if(m%2===0){
+    console.log(m)
+  }
+}
