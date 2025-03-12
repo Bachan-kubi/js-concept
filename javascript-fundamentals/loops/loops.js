@@ -65,14 +65,27 @@
 // for(;a<5; a++){
 //   console.log("method-2", a)
 // }
-let p = 5;
-for(; p<15;p+=3){
-  if(p%2===0){
-    break
-    // continue; to skip a given conditon 
-  };
-console.log("method-3", p);
-}
+// let p = 5;
+// for(; p<15;p+=3){
+//   if(p%2===0){
+//     break; // break stops block of code running.
+//     // continue; to skip a given conditon. 
+//   };
+// console.log("method-3", p);
+// }
 
 // we can force the exit from iteration of loops
 
+// problems
+// 1 
+let i = 3;
+while(i){
+  console.log(i--);
+}
+
+// 2
+let q = 0;
+while(++q<5) console.log("prefix",q)
+
+let p = 0;
+while(p++<5) console.log("postfix",p)
