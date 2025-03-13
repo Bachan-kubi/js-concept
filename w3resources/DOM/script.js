@@ -52,11 +52,13 @@ console.log(para, button);
 
 // get form value
 function getFormValue(event) {
-    event.preventDefault()
+    event.preventDefault();
+    let fname = document.getElementById('fname');
+    console.dir(fname.value);
     // method-1
-    const v = document.getElementById('form-1');
-    console.dir(v.elements['fname'].value);
-    console.dir(v.elements['lname'].value);
+    // const v = document.getElementById('form-1');
+    // console.dir(v.elements['fname'].value);
+    // console.dir(v.elements['lname'].value);
     
     // method-2
     // for (let i = 0; i < v.elements.length; i++) {
