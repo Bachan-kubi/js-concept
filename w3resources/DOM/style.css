@@ -3,3 +3,7 @@
   font-family: "Comic Sans MS";
   color: red;
 }
+/* change background color */
+.b-color{
+  background-color: teal;
+}
