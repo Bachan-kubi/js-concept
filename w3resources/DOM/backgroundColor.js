@@ -21,3 +21,10 @@ allTags.map(elem=>console.log(elem));
 // const querySelectors = document.querySelectorAll('section button:nth-child(3)');
 const querySelectors = document.querySelectorAll('section button');
 console.log(querySelectors)
+querySelectors.forEach(ele=>console.log(ele));
+// change elements
+const changeContentJs = document.getElementById('js');
+const changeContentPara = document.getElementById('para');
+console.log(changeContentJs);
+changeContentJs.innerHTML= '<h1>ami change korte <b>parsi</b></h1>';
+changeContentJs.classList.add('c-color');
