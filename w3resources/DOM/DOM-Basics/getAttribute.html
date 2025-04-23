@@ -13,10 +13,10 @@
     <h1 id="dis"></h1>
     <button onclick="getAttr()">Click here</button>
 
-    <form onsubmit="getFormValue()">
-        <input type="text" placeholder="Enter First Name"> <br>
-        <input type="text" placeholder="Enter Last Name"><br>
-        <input type="email" placeholder="Enter Email">
+    <form id="form1" onsubmit="getFormValue(event)"> // you must pass event object from html to get event object
+        <input name="firstname" type="text" placeholder="Enter First Name"> <br>
+        <input name="lastname" type="text" placeholder="Enter Last Name"><br>
+        <input name="email" type="email" placeholder="Enter Email">
         <input type="submit" value="Submit">
     </form>
 

@@ -9,4 +9,16 @@ function getAttr() {
       dis.innerText = 'Element not found!';
     }
   }
+
+  // get form value
+  const form = document.getElementById('form1');
+  console.log(form.elements);
+  
+  function getFormValue(e){
+    e.preventDefault();
+    const firstName = form.elements['firstname'].value;
+    const lastName = form.elements['lastname'].value;
+    const email = form.elements['email'].value;
+    console.log(firstName, lastName, email);
+  }
   
