@@ -13,9 +13,19 @@
     <h1 id="dis"></h1>
     <button onclick="getAttr()">Click here</button>
 
-    <form id="form1" onsubmit="getFormValue(event)"> // you must pass event object from html to get event object
+    <form id="form1" onsubmit="getFormValue(event)">
+        <!-- you must pass event object from html to get event object -->
         <input name="firstname" type="text" placeholder="Enter First Name"> <br>
         <input name="lastname" type="text" placeholder="Enter Last Name"><br>
+        <input name="email" type="email" placeholder="Enter Email">
+        <input type="submit" value="Submit">
+    </form>
+    <!-- Form 2 -->
+     <h1>Learning Form and its function!!</h1>
+    <form id="form2">
+        <!-- you must pass event object from html to get event object -->
+        <input id="fname" name="firstname" type="text" placeholder="Enter First Name"> <br>
+        <input name="lastname" type="number" placeholder="Enter Last Name"><br>
         <input name="email" type="email" placeholder="Enter Email">
         <input type="submit" value="Submit">
     </form>
