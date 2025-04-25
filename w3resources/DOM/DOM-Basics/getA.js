@@ -28,7 +28,7 @@ function getAttr() {
   form2.addEventListener('change', formTwo);
   function formTwo(e){
     console.log(e);
-    const inputName = e.target.id
+    const inputName = e.target
     console.log(inputName);
   }
   
