@@ -1,0 +1,22 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  h1{max-width: 60%;
+    margin: 0 auto;}
+  h2 {
+    color: #2a7b3f;
+  }
+  ul {
+    padding-left: 20px;
+  }
+  .section {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-left: 4px solid #2a7b3f;
+    background: #f2fdf4;
+  }
+  #projectContainer{
+    max-width: 60%;
+    margin: 0 auto;
+  }
