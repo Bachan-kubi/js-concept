@@ -48,3 +48,46 @@ const user ={
 user.name = 'Kubi';
 const newUser = delete user.name;
 console.log(user)
+
+// prototype inherited
+let animal = {
+  eat: true,
+  walk(){
+    console.log("it can walk!");
+  },
+  milk(){
+    console.log("It gives us fertilizer!");
+  }
+}
+let rabbit = {
+  jums: true,
+  __proto__: animal
+};
+// rabbit.walk();
+console.log(rabbit.eat);
+rabbit.milk();
+rabbit.walk = function(){
+  console.log('new task added!!');
+};
+rabbit.walk();
+
+let users = {
+  name: "Kubi",
+  surname: "Bachan",
+  set fullName(value){
+    [this.name, this.surname]= value.split(' ')
+  },
+  get fullName(){
+    return `${this.name} ${this.surname}`
+  }
+};
+let admin = {
+  __proto__: users,
+  isAdmin: true
+};
+
+console.log(admin.fullName);
+admin.fullName = "ami nai";
+console.log(admin.fullName);
+
+
