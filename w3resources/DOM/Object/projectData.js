@@ -43,3 +43,7 @@ export const project = {
   };
   
   console.log(project.budget);
+
+  for(let kv of project.keys()){
+    console.log(kv);
+  }

@@ -90,4 +90,15 @@ console.log(admin.fullName);
 admin.fullName = "ami nai";
 console.log(admin.fullName);
 
+const mapping = new Map();
+
+mapping.set(1, 'ki')
+mapping.set('1', 'ki')
+mapping.set(true, 'hoy');
+
+console.log(mapping);
+console.log(mapping.get(true));
+for(let k of mapping){
+  console.log(k);
+}
 
