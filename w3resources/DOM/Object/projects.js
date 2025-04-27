@@ -1,6 +1,7 @@
 // import { project } from "./projectData";
+// const data = fetch('project')
+// data.then(res=>console.log(res))
 // console.log(project);
-
 const project = {
   name: "Community Tree Plantation",
   startDate: "2025-05-01",
