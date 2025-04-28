@@ -38,6 +38,10 @@ people
 people;
 people.name = 'ami';
 people;
-m.name= 'komu';
-m;
 people
+const number = [10, -20, 5, 44, 5];
+const r = number.some(v=>v<10);
+console.log(r);
+
+const allPos = number.filter(v=>v<0);
+console.log(allPos);
