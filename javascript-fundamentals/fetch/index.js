@@ -18,3 +18,16 @@
 // }
 // fetchData();
 
+const users = fetch("https://jsonplaceholder.typicode.com/users", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        name: 'ami'
+    })
+})
+    .then(res=>{
+        return res.text()})
+    .then(data=>console.log(data))
+
