@@ -43,12 +43,14 @@ console.log('object');
 // extends key words
 class Cycle extends Car{
     break(){
+        super.stop()
         console.log(`${this.name} breaks hardly and its making year is ${this.year}`);
     }
 }
 const bike = new Cycle("My Bike", 2001);
 console.log(bike);
 bike.break();
+
 console.log(bike.stop('my bike'));
 
 
