@@ -28,6 +28,6 @@ class Clock{
 }
 
 const c = new Clock({template: "h:m:s"});
-c.start()
+c.start();
 
 
