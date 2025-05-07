@@ -71,6 +71,50 @@ class Timi extends JolerPrani{
 console.log(new JolerPrani());
 console.log(new Timi());
 
+class Pani {
+    name = "Pani"
+    showPani(){
+        console.log('pani');
+    }
+    constructor(){
+        this.showPani()
+    }
+}
+class Tel extends Pani{
+    showPani(){
+        console.log('tel');
+    }
+};
+const ani = new Pani();
+ani.showPani();
+
+const jani = {
+    name: 'Jani',
+    eat(){
+        console.log(`${this.name} eats`);
+    }
+}
+const mani = {
+    __proto__: jani,
+    name: "Mani",
+    eat(){
+        // this.__proto__.eat.call(this);
+        super.eat()
+    }
+}
+const kori = {
+    __proto__: mani,
+    name: "Kori",
+    eat(){
+        super.eat()
+        // this.__proto__.eat.call(this);
+    }
+}
+mani.eat();
+// this calling wouldnt work as calling from same context. 
+kori.eat();
+
+
 
 
 
