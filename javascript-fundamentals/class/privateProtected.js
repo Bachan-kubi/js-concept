@@ -16,13 +16,27 @@ class CoffeeMachine {
    get power(){
     return this._power
    }
+   // private
+   #waterLimit = 200;
+   #fixWaterLimit(v){
+    if(v<0) return 0;
+    if(v>this.#waterLimit){
+        return this.#waterLimit;
+    }
+    return this.#fixWaterLimit
+   }
+   set waterLimit(v){
+    this.#waterLimit = this.#fixWaterLimit(v)
+   }
 
 }
+
 let coffeeMachine = new CoffeeMachine(100);
+console.log("private", CoffeeMachine.#fixWaterLimit(122));
 coffeeMachine.waterAmount = 10;
 // it accesible from outside of class and object too
 console.log(coffeeMachine.waterAmount);
 // only once the power will be adapted
-console.log(coffeeMachine.power);
+console.log(CoffeeMachine.power);
 // you cant set power as there is method to set or modify power
-coffeeMachine.power = 200;
+console.log(CoffeeMachine.power = 200);
