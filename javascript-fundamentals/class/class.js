@@ -54,4 +54,21 @@ bike.break();
 console.log(bike.stop('my bike'));
 
 
+const animal = {
+    eats: true,
+    walk(){
+        console.log('animal walk!');
+    }
+}
+const rabit = {
+    jumps: true,
+    run(){
+        console.log('rabits runs!');
+    },
+    __proto__:animal
+}
+rabit.walk()
+
+
+
 
