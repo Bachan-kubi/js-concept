@@ -24,4 +24,4 @@ let earLong = {
 rabbit.play();
 console.log(earLong);
 rabbit.run();
-console.log(rabbit);;
+console.log(rabbit);
