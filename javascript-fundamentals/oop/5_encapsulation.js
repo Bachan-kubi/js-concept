@@ -1,5 +1,7 @@
 class BankAccount{
+    // public property
     customerName;
+    // private property
     #balance;
     accountNo;
     constructor(customerName, balance=0){
@@ -12,10 +14,21 @@ class BankAccount{
     };
     withdrawal(amount){
         this.#balance -= amount;
+    };
+    set balance(amount){
+        // protected properties
+        if(typeof amount !== "number"|| isNaN(amount)){
+            throw new Error("This is not valid")
+        }
+        this.#balance += amount;
+    };
+    get balance(){
+        return this.#balance;
     }
 }
 const k = new BankAccount('k', 5000);
-k.#balance="ji";
+k.balance=500;
+console.log(k.balance);
 console.log(k);
 
 
