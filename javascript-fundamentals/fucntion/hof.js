@@ -72,3 +72,12 @@ console.log(getBooksByAuthor(library, 'Arvid Kahl'));
     return arr.reduce((total, book)=>total+book.pages,0)
   };
   console.log(getTotalPages(library));
+
+  const libraryBooks= displayBooks(library);
+  const bookSummaries= getBookSummaries(library);
+  const booksByArvidKahl= getBooksByAuthor(library, 'Arvid Kahl');
+  const totalPagesOfBooksInLibrary= getTotalPages(library);
+  console.log(libraryBooks);
+  console.log(bookSummaries);
+  console.log(booksByArvidKahl);
+  console.log(totalPagesOfBooksInLibrary);
