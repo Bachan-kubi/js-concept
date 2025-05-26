@@ -16,7 +16,7 @@ const myObj = Object.values(person);
 myObj.forEach(e=>{
     console.log("ki",e);
 })
-
+const objS = JSON.stringify(person)
 console.log(myObj);
-document.getElementById('demo').innerHTML= myObj
+document.getElementById('demo').innerHTML= objS;
 
