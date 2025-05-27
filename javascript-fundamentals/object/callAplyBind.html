@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Call, Bind, and Apply Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    #output {
+      background-color: #f4f4f4;
+      padding: 15px;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Understanding Call, Bind, and Apply in JavaScript</h1>
+  <p>Click the buttons below to see how call, bind, and apply work with object methods.</p>
+  <button onclick="demoCall()">Demonstrate Call</button>
+  <button onclick="demoApply()">Demonstrate Apply</button>
+  <button onclick="demoBind()">Demonstrate Bind</button>
+  <div id="output"></div>
+
+  <script>
+    // Object representing a user
+    const user1 = {
+      name: "Alice",
+      age: 25,
+      greet: function(message, punctuation) {
+        return `${message}, my name is ${this.name} and I'm ${this.age} years old${punctuation}`;
+      }
+    };
+
+    const user2 = {
+      name: "Bob",
+      age: 30
+    };
+
+    // Function to display results
+    function displayOutput(text) {
+      const outputDiv = document.getElementById('output');
+      outputDiv.innerHTML += `<p>${text}</p>`;
+    }
+
+    // Demonstrate call method
+    function demoCall() {
+      // Using call to borrow user1's greet method for user2
+      const result = user1.greet.call(user2, "Hello", "!");
+      displayOutput(`Using call: ${result}`);
+    }
+
+    // Demonstrate apply method
+    function demoApply() {
+      // Using apply to borrow user1's greet method for user2 with arguments as array
+      const result = user1.greet.apply(user2, ["Hi there", "?"]);
+      displayOutput(`Using apply: ${result}`);
+    }
+
+    // Demonstrate bind method
+    function demoBind() {
+      // Using bind to create a new function with user2 as 'this'
+      const boundGreet = user1.greet.bind(user2);
+      const result = boundGreet("Hey", ".");
+      displayOutput(`Using bind: ${result}`);
+      
+      // Show that bind creates a reusable function
+      const anotherResult = boundGreet("Yo", "!");
+      displayOutput(`Using bound function again: ${anotherResult}`);
+    }
+
+    // Clear output before each demo
+    function clearOutput() {
+      document.getElementById('output').innerHTML = '';
+    }
+
+    // Add event listeners to clear output before each demo
+    document.querySelectorAll('button').forEach(button => {
+      button.addEventListener('click', clearOutput);
+    });
+  </script>
+</body>
+</html>
