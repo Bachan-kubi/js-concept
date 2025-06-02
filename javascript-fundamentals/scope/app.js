@@ -12,3 +12,7 @@ function localScope(){
 }
 
 localScope();
+if(true){
+    let xx = 10;
+    console.log(xx);
+}
