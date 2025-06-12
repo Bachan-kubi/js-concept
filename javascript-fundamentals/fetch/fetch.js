@@ -1,9 +1,9 @@
-fetch('https://jsonplaceholder.typicode.com/posts')
-.then(x=>x.json())
-.then(y=>console.log(y))
 
 const allData = fetch('https://jsonplaceholder.typicode.com/photos')
+
+allData
 .then(data=>data.json())
+// .then(finalData=>console.log(finalData));
 .then(finalData=>displayData(finalData));
 
 function displayData(photos) {
@@ -16,9 +16,8 @@ function displayData(photos) {
         .slice(0, 10)
         .map(photo => `
             <div style="margin: 10px;">
-                <img src="${photo.thumbnailUrl}" alt="${photo.title}">
-                <p>${photo.title}</p>
+                <img src="${photo.url}" alt="${photo.title}">
+                <h3>${photo.title}</h3>
             </div>
-        `)
-        .join('');
+        `).join('')
 }
