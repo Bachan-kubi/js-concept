@@ -54,11 +54,12 @@
 //         `).join('')
 // }
 
-import { getData } from "./01_basic_fetch.js";
+import { getData, getAlbulm } from "./01_basic_fetch.js";
+
 
 getData();
+getAlbulm(); 
 
-export{getData}
 
 
 
