@@ -55,10 +55,12 @@
 // }
 
 import { getData, getAlbulm } from "./01_basic_fetch.js";
+import { asyncAwait } from "./02_try_async.js";
 
 
 getData();
 getAlbulm(); 
+asyncAwait();
 
 
 
