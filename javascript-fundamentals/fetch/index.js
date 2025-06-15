@@ -24,7 +24,8 @@ const users = fetch("https://jsonplaceholder.typicode.com/users", {
         "Content-Type": "application/json"
     },
     body: JSON.stringify({
-        name: 'ami'
+        name: 'ami',
+        id:123
     })
 })
     .then(res=>{
