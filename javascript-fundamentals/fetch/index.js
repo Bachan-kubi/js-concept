@@ -56,14 +56,16 @@
 
 import { getData, getAlbulm } from "./01_basic_fetch.js";
 import { asyncAwait } from "./02_try_async.js";
-
-
+import { setupFormSubmitHandler } from "./03_formData.js";
+import { fakeData } from "./04_fakeData.js";
 
 
 
 getData();
 getAlbulm(); 
 asyncAwait();
+setupFormSubmitHandler();
+fakeData()
 
 
 
