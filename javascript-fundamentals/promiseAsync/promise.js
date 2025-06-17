@@ -1,13 +1,13 @@
 export function simplePromise(){
-    const url = 'https://jsonplaceholder.typicode.com/posts'
-    const fData = fetch(url)
+    const url = 'https://jsonplaceholder.typicode.com/posts';
+    fetch(url)
     // console.log(fData)
-        .then((fData)=>{
-            if(!fData.ok){
+        .then((res)=>{
+            if(!res.ok){
                 throw new Error('Lets learn more')
             }
-            console.log(fData.text());
-            return fData.json()
+            console.log(res);
+            return res.json();
         })
         // .then(res=>res.json())
         .then(data=>console.log(data))
