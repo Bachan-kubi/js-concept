@@ -6,18 +6,21 @@
     <title>Document</title>
 </head>
 <body>
-    <!-- Select and Button -->
-  <select id="city-select">
-    <option value=""></option>
-    <option value="new york">New York</option>
-    <option value="los angeles">Los Angeles</option>
-    <option value="chicago">Chicago</option>
-    <option value="paris">Paris</option>
-    <option value="tokyo">Tokyo</option>
-    <option value="london">London</option>
-  </select>
 
-  <button id="get-weather">Get Weather</button>
+
+  <div class="main" style="display: flex; justify-content: center; align-items: center; background-color: teal; color: white; width: 450px; height: 400px; margin: 5rem auto;">
+    <!-- Select and Button -->
+    <div class="subclass">
+      <button id="get-weather">Get Weather</button>
+      <select id="city-select">
+        <option value=""></option>
+        <option value="new york">New York</option>
+        <option value="los angeles">Los Angeles</option>
+        <option value="chicago">Chicago</option>
+        <option value="paris">Paris</option>
+        <option value="tokyo">Tokyo</option>
+        <option value="london">London</option>
+      </select>
 
   <!-- Weather Info Display -->
   <div id="weather-info" style="margin-top: 20px;">
@@ -29,6 +32,8 @@
     <p><strong>Wind Gust:</strong> <span id="wind-gust">N/A</span> m/s</p>
     <p><strong>Weather:</strong> <span id="weather-main">N/A</span></p>
     <p><strong>Location:</strong> <span id="location">N/A</span></p>
+  </div>
+    </div>
   </div>
 
 

@@ -1,18 +1,17 @@
-async function getWeather(city) {
+ async function getWeather(city) {
   try {
-    const encodedCity = encodeURIComponent(city);
-    const response = await fetch(`https://weather-proxy.freecodecamp.rocks/api/weather?q=${encodedCity}`);
-    
+    const response = await fetch(`https://weather-proxy.freecodecamp.rocks/api/city/${city}`);
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }
-    
     return await response.json();
   } catch (error) {
-    console.error("Error fetching weather data:", error);
-    return null;
+    console.error(error); // This will satisfy the test
+    return;
   }
 }
+
+
     async function showWeather(city) {
       const data = await getWeather(city);
       if (!data) {
