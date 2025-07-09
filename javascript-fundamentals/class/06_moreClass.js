@@ -8,6 +8,7 @@ class User {
     drive(){
         console.log(`${this.name} can drive car at ${this.age} after leaving his ${this.job} ${this.details}`);
     }
+
 }
 const pitchi = {
     name: "kubi",
@@ -17,3 +18,13 @@ const pitchi = {
 }
 const bachan = new User(pitchi.name, pitchi.job, pitchi.age, pitchi.details)
 bachan.drive()
+
+
+class Bachan extends User{
+    stop(){
+        console.log(`${this.name} stops`);
+    }
+}
+let kubi = new Bachan(pitchi.name, pitchi.job, pitchi.age, pitchi.details);
+kubi.stop('ami');
+kubi.drive();
