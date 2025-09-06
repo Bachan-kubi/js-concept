@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Movie Collection Manager</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+    }
+    .section {
+      background: #fff;
+      margin: 15px 0;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .movie {
+      padding: 5px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎬 Movie Collection Manager</h1>
+  <div id="output"></div>
+
+  <script>
+    // Initial movie collection
+    let movies = [
+      { id: 1, title: "Inception", year: 2010, rating: 8.8, genres: ["Action", "Sci-Fi"] },
+      { id: 2, title: "The Dark Knight", year: 2008, rating: 9.0, genres: ["Action", "Drama"] },
+      { id: 3, title: "Interstellar", year: 2014, rating: 8.6, genres: ["Adventure", "Drama", "Sci-Fi"] },
+      { id: 4, title: "Parasite", year: 2019, rating: 8.6, genres: ["Thriller", "Drama"] },
+      { id: 5, title: "Avengers: Endgame", year: 2019, rating: 8.4, genres: ["Action", "Adventure"] }
+    ];
+
+    const output = document.getElementById("output");
+
+    // Push & Pop
+    movies.push({ id: 6, title: "Joker", year: 2019, rating: 8.5, genres: ["Drama"] });
+    let popped = movies.pop(); // remove last
+
+    // Unshift & Shift
+    movies.unshift({ id: 0, title: "The Matrix", year: 1999, rating: 8.7, genres: ["Action", "Sci-Fi"] });
+    let shifted = movies.shift(); // remove first
+
+    // Map
+    let titles = movies.map(m => m.title);
+
+    // Filter
+    let highRated = movies.filter(m => m.rating > 8.7);
+
+    // Reduce
+    let avgRating = (movies.reduce((sum, m) => sum + m.rating, 0) / movies.length).toFixed(2);
+
+    // ForEach
+    let allMoviesList = "";
+    movies.forEach(m => allMoviesList += `<div class="movie">${m.title} (${m.year}) ⭐${m.rating}</div>`);
+
+    // Find & FindIndex
+    let findMovie = movies.find(m => m.title === "Interstellar");
+    let findIndexMovie = movies.findIndex(m => m.title === "Parasite");
+
+    // Some & Every
+    let hasAction = movies.some(m => m.genres.includes("Action"));
+    let allAbove8 = movies.every(m => m.rating > 8);
+
+    // Sort
+    let sortedByYear = [...movies].sort((a, b) => a.year - b.year);
+
+    // Includes
+    let checkTitle = titles.includes("Inception");
+
+    // IndexOf
+    let indexOfMovie = titles.indexOf("The Dark Knight");
+
+    // Concat
+    let extraMovies = [{ id: 7, title: "Titanic", year: 1997, rating: 7.9, genres: ["Romance", "Drama"] }];
+    let mergedMovies = movies.concat(extraMovies);
+
+    // Slice
+    let firstThree = movies.slice(0, 3);
+
+    // Splice
+    let removed = movies.splice(2, 1, { id: 99, title: "Replaced Movie", year: 2025, rating: 9.9, genres: ["Fantasy"] });
+
+    // Flat
+    let allGenres = movies.map(m => m.genres).flat();
+
+    // Join
+    let joinedTitles = titles.join(" | ");
+
+    // Reverse
+    let reversed = [...titles].reverse();
+
+    // Display in HTML
+    output.innerHTML = `
+      <div class="section"><h2>🎥 All Movies</h2>${allMoviesList}</div>
+      <div class="section"><h2>🔠 Titles (map)</h2>${titles.join(", ")}</div>
+      <div class="section"><h2>⭐ High Rated Movies (filter)</h2>${highRated.map(m=>m.title).join(", ")}</div>
+      <div class="section"><h2>📊 Average Rating (reduce)</h2>${avgRating}</div>
+      <div class="section"><h2>🔍 Find "Interstellar"</h2>${findMovie ? findMovie.title : "Not found"} (index: ${findIndexMovie})</div>
+      <div class="section"><h2>✅ Some & Every</h2>Has Action? ${hasAction} | All Above 8? ${allAbove8}</div>
+      <div class="section"><h2>📅 Sorted by Year</h2>${sortedByYear.map(m=>m.title+" ("+m.year+")").join(", ")}</div>
+      <div class="section"><h2>🔎 Includes "Inception"</h2>${checkTitle}</div>
+      <div class="section"><h2>📍 IndexOf "The Dark Knight"</h2>${indexOfMovie}</div>
+      <div class="section"><h2>➕ Concat Extra Movie</h2>${mergedMovies.map(m=>m.title).join(", ")}</div>
+      <div class="section"><h2>✂️ Slice (first 3)</h2>${firstThree.map(m=>m.title).join(", ")}</div>
+      <div class="section"><h2>🔄 Splice (removed + replaced)</h2>Removed: ${removed.map(m=>m.title).join(", ")} | New: ${movies.map(m=>m.title).join(", ")}</div>
+      <div class="section"><h2>📚 All Genres (flat)</h2>${allGenres.join(", ")}</div>
+      <div class="section"><h2>🔗 Joined Titles</h2>${joinedTitles}</div>
+      <div class="section"><h2>↩️ Reversed Titles</h2>${reversed.join(", ")}</div>
+    `;
+  </script>
+</body>
+</html>
