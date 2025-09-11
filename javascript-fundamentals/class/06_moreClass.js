@@ -17,7 +17,7 @@ const pitchi = {
     details: 'living in birisiri, and get the world to get eneo'
 }
 const bachan = new User(pitchi.name, pitchi.job, pitchi.age, pitchi.details)
-bachan.drive()
+bachan.drive();
 
 
 class Bachan extends User{
