@@ -16,6 +16,6 @@ h6.addEventListener('enter', testEvents)
 button.addEventListener('mouseleave', testEvents);
 
 function testEvents(evt){
-    console.log(evt.type);
+    console.log(evt.view);
 }
 
