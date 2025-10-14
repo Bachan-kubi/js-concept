@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Object</title>
+    <style>
+        h2{
+            display: block;
+        }
+        .hidden{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">Click me</button>
+    <button id="btn-hide">Hide me</button>
+    <h2>Hide me Sir</h2>
+    <h1></h1>
+
+    <script>
+        const h1 = document.querySelector("h1");
+        const btn = document.getElementById("btn");
+        btn.addEventListener("click", function() {
+            btn.style.display = "none";
+            btn.hidden = true;
+        })
+        btn.addEventListener("click", function(e) {
+            let values = e.type +" at "+ e.currentTarget.id;
+            h1.textContent = values;
+            console.log(e.type +"at"+ e.currentTarget.innerText);
+            let valuesOne = e.clientX + "and "+ e.clientY;
+            console.log(valuesOne);
+            // h1.textContent = valuesOne;
+        });
+        document.getElementById("btn-hide").addEventListener("click", function() {
+            document.querySelector("h2").classList.toggle("hidden");
+        });
+    </script>
+</body>
+</html>
