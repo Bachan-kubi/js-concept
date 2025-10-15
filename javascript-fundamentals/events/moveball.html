@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ball moving event</title>
+    <style>
+        main{
+            width: 500px;
+            height: 300px;
+            background-color: red;
+            position: relative;
+            border: 5px solid black;
+            cursor: pointer;
+        }
+        #dots{
+            color: yellow;
+            height: auto;
+            padding: 10px;
+            overflow-wrap: anywhere;
+            overflow: hidden;
+            line-height: 8px;
+        }
+        #ball{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+            background-color: transparent;
+            /* transition: all 1s; */
+        }
+    </style>
+</head>
+<body>
+    <h3>Move the ball from here and there!</h3><br>
+    <main>
+        <h6 id="dots"></h6>
+        <img id="ball" src="https://en.js.cx/clipart/ball.svg" alt="">
+    </main>
+
+
+    <script src="./moveball.js"></script>
+</body>
+</html>
