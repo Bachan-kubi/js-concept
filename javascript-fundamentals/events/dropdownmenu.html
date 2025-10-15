@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .menu{
+            width: 250px;
+            background: wheat;
+        }
+        .menu .title{
+            font-size: 17px;
+            background-color: green;
+            cursor: pointer;
+        }
+        .menu .title::before{
+            content: "▶ ";
+            font-size: 22px;
+            color: red;
+        }
+        .menu.open .title::before{
+            content: '▼ ';
+            
+        }
+        .menu ul{
+            list-style: none;
+            padding-left: 10px;
+            margin: 10px;
+            display: none;
+        }
+        .menu.open ul{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="sweet" class="menu">
+        <span class="title">Sweeties(click Me)</span>
+        <ul>
+            <li>Menu</li>
+            <li>Price</li>
+            <li>Projects</li>
+            <li>About</li>
+        </ul>
+    </div>
+
+    <script>
+        const sweets = document.getElementById("sweet");
+        const title= document.querySelector(".title");
+        title.addEventListener("click", ()=>{
+            sweets.classList.toggle("open");
+        })
+    </script>
+</body>
+</html>
