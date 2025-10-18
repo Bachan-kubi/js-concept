@@ -44,13 +44,25 @@
             <li>About</li>
         </ul>
     </div>
+    <!-- object handler  -->
+    <button id="btnClick">Click here</button>
 
     <script>
+        // hide menus
         const sweets = document.getElementById("sweet");
         const title= document.querySelector(".title");
         title.addEventListener("click", ()=>{
             sweets.classList.toggle("open");
-        })
+        });
+        // object handler 
+        const btnClick = document.getElementById("btnClick");
+        console.log(btnClick);
+        let obj = {
+            handleObj (e) {
+                console.log(`${e.type} at ${e.currentTarget.id}`);                
+            }
+        }
+        btnClick.addEventListener("click", obj.handleObj);
     </script>
 </body>
 </html>
