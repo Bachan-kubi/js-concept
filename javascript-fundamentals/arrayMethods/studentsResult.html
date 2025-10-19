@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Grade Manager</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      padding: 0;
+      background: #f7f7f7;
+    }
+    h1 {
+      text-align: center;
+    }
+    .student-list {
+      margin-top: 20px;
+      padding: 10px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .student {
+      border-bottom: 1px solid #ddd;
+      padding: 8px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎓 Student Grade Manager</h1>
+  <div class="student-list" id="studentList"></div>
+
+  <script>
+    // Our data
+    const students = [
+      { id: 1, name: "Alice", scores: [85, 90, 78] },
+      { id: 2, name: "Bob", scores: [60, 72, 68] },
+      { id: 3, name: "Charlie", scores: [95, 88, 92] },
+      { id: 4, name: "David", scores: [40, 55, 50] },
+      { id: 5, name: "Eva", scores: [70, 80, 65] }
+    ];
+
+    // 1. Calculate average score for each student (map + reduce)
+    const withAverage = students.map(student => {
+      const avg = student.scores.reduce((a, b) => a + b, 0) / student.scores.length;
+      return { ...student, average: avg };
+    });
+
+    // 2. Filter students who passed (average >= 60)
+    const passed = withAverage.filter(student => student.average >= 60);
+
+    // 3. Find topper
+    const topper = withAverage.reduce((max, student) => 
+      student.average > max.average ? student : max
+    );
+
+    // 4. Sort students by average descending
+    const sorted = [...withAverage].sort((a, b) => b.average - a.average);
+
+    // 5. Check if everyone passed (every)
+    const allPassed = withAverage.every(student => student.average >= 60);
+
+    // 6. Check if someone failed (some)
+    const someoneFailed = withAverage.some(student => student.average < 60);
+
+    // Display results in HTML
+    const container = document.getElementById("studentList");
+    container.innerHTML = `
+      <h2>All Students (with averages)</h2>
+      ${sorted.map(s => `
+        <div class="student">
+          <strong>${s.name}</strong> - Average: ${s.average.toFixed(2)}
+        </div>
+      `).join("")}
+
+      <h2>✅ Passed Students</h2>
+      ${passed.map(s => `<div>${s.name} (${s.average.toFixed(2)})</div>`).join("")}
+
+      <h2>🏆 Topper</h2>
+      <p>${topper.name} with average ${topper.average.toFixed(2)}</p>
+
+      <h2>🔍 Class Status</h2>
+      <p>All Passed? ${allPassed}</p>
+      <p>Someone Failed? ${someoneFailed}</p>
+    `;
+  </script>
+
+</body>
+</html>
