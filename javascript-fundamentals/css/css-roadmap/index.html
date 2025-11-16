@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Learning Roadmap</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            color: white;
+        }
+        
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        .roadmap-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+        
+        .roadmap-header {
+            background: linear-gradient(to right, #4b6cb7, #182848);
+            color: white;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .roadmap-header h2 {
+            font-size: 1.8rem;
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 30px 20px;
+            background: #f8f9fa;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background: linear-gradient(to bottom, #4b6cb7, #182848);
+            transform: translateX(-50%);
+        }
+        
+        .phase {
+            display: flex;
+            margin-bottom: 50px;
+            position: relative;
+            width: 100%;
+        }
+        
+        .phase:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .phase-content {
+            width: calc(50% - 40px);
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .phase-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .phase:nth-child(odd) .phase-content {
+            margin-right: auto;
+            margin-left: 0;
+        }
+        
+        .phase:nth-child(even) .phase-content {
+            margin-left: auto;
+            margin-right: 0;
+        }
+        
+        .phase-number {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.5rem;
+            z-index: 2;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        
+        .phase-title {
+            color: #4b6cb7;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .phase-description {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .topics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .topic {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
+        .resources {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px dashed #e0e0e0;
+        }
+        
+        .resources h4 {
+            color: #4b6cb7;
+            margin-bottom: 10px;
+        }
+        
+        .resources ul {
+            padding-left: 20px;
+        }
+        
+        .resources li {
+            margin-bottom: 8px;
+            color: #555;
+        }
+        
+        .resources a {
+            color: #4b6cb7;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .resources a:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+        
+        .tips-section {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-top: 20px;
+        }
+        
+        .tips-section h2 {
+            color: #4b6cb7;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .tip-card {
+            background: linear-gradient(135deg, #f5f7fa, #e4edf9);
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .tip-card h3 {
+            color: #182848;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .tip-card p {
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: white;
+            font-size: 1.1rem;
+        }
+        
+        @media (max-width: 900px) {
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .phase {
+                flex-direction: column !important;
+                align-items: flex-start;
+            }
+            
+            .phase-content {
+                width: calc(100% - 60px) !important;
+                margin: 0 0 0 60px !important;
+            }
+            
+            .phase-number {
+                left: 30px;
+                top: 25px;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .phase-content {
+                width: calc(100% - 40px) !important;
+                margin: 0 0 0 40px !important;
+                padding: 20px;
+            }
+            
+            .phase-number {
+                left: 20px;
+                top: 20px;
+            }
+            
+            .timeline::before {
+                left: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-road"></i> CSS Learning Roadmap</h1>
+            <p>Your comprehensive guide to mastering Cascading Style Sheets from fundamentals to advanced techniques</p>
+        </header>
+        
+        <div class="roadmap-container">
+            <div class="roadmap-header">
+                <h2>Learning Journey</h2>
+                <div>
+                    <span><i class="fas fa-clock"></i> Estimated: 3-6 months</span>
+                </div>
+            </div>
+            
+            <div class="timeline">
+                <!-- Phase 1 -->
+                <div class="phase">
+                    <div class="phase-number">1</div>
+                    <div class="phase-content">
+                        <h3 class="phase-title">CSS Fundamentals</h3>
+                        <p class="phase-description">Start with the absolute basics to build a solid foundation.</p>
+                        <div class="topics">
+                            <span class="topic">Syntax & Selectors</span>
+                            <span class="topic">Box Model</span>
+                            <span class="topic">Colors & Backgrounds</span>
+                            <span class="topic">Text Styling</span>
+                            <span class="topic">Display Property</span>
+                        </div>
+                        <div class="resources">
+                            <h4>Resources:</h4>
+                            <ul>
+                                <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank">MDN CSS Basics</a></li>
+                                <li><a href="https://www.w3schools.com/css/" target="_blank">W3Schools CSS Tutorial</a></li>
+                                <li>Practice with <a href="https://codepen.io/" target="_blank">CodePen</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Phase 2 -->
+                <div class="phase">
+                    <div class="phase-number">2</div>
+                    <div class="phase-content">
+                        <h3 class="phase-title">Layout Techniques</h3>
+                        <p class="phase-description">Learn how to position elements and create page layouts.</p>
+                        <div class="topics">
+                            <span class="topic">Floats</span>
+                            <span class="topic">Positioning</span>
+                            <span class="topic">Flexbox</span>
+                            <span class="topic">CSS Grid</span>
+                            <span class="topic">Responsive Design</span>
+                        </div>
+                        <div class="resources">
+                            <h4>Resources:</h4>
+                            <ul>
+                                <li><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">Flexbox Guide</a></li>
+                                <li><a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank">CSS Grid Guide</a></li>
+                                <li><a href="https://www.freecodecamp.org/learn/" target="_blank">FreeCodeCamp Responsive Design</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Phase 3 -->
+                <div class="phase">
+                    <div class="phase-number">3</div>
+                    <div class="phase-content">
+                        <h3 class="phase-title">Advanced Styling</h3>
+                        <p class="phase-description">Enhance your designs with advanced CSS features.</p>
+                        <div class="topics">
+                            <span class="topic">Transitions</span>
+                            <span class="topic">Transforms</span>
+                            <span class="topic">Animations</span>
+                            <span class="topic">Pseudo-elements</span>
+                            <span class="topic">Custom Properties</span>
+                        </div>
+                        <div class="resources">
+                            <h4>Resources:</h4>
+                            <ul>
+                                <li><a href="https://animate.style/" target="_blank">Animate.css</a></li>
+                                <li><a href="https://css-tricks.com/almanac/" target="_blank">CSS Tricks Almanac</a></li>
+                                <li><a href="https://www.udemy.com/course/css-animations/" target="_blank">CSS Animations Course</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Phase 4 -->
+                <div class="phase">
+                    <div class="phase-number">4</div>
+                    <div class="phase-content">
+                        <h3 class="phase-title">CSS Architecture</h3>
+                        <p class="phase-description">Learn methodologies for organizing and maintaining CSS.</p>
+                        <div class="topics">
+                            <span class="topic">BEM Methodology</span>
+                            <span class="topic">CSS Preprocessors</span>
+                            <span class="topic">CSS Modules</span>
+                            <span class="topic">CSS-in-JS</span>
+                            <span class="topic">Performance</span>
+                        </div>
+                        <div class="resources">
+                            <h4>Resources:</h4>
+                            <ul>
+                                <li><a href="http://getbem.com/" target="_blank">BEM Methodology</a></li>
+                                <li><a href="https://sass-lang.com/" target="_blank">Sass Documentation</a></li>
+                                <li><a href="https://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/" target="_blank">BEM Guide</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Phase 5 -->
+                <div class="phase">
+                    <div class="phase-number">5</div>
+                    <div class="phase-content">
+                        <h3 class="phase-title">Modern CSS & Beyond</h3>
+                        <p class="phase-description">Stay current with the latest CSS features and techniques.</p>
+                        <div class="topics">
+                            <span class="topic">Container Queries</span>
+                            <span class="topic">Subgrid</span>
+                            <span class="topic">CSS Houdini</span>
+                            <span class="topic">Accessibility</span>
+                            <span class="topic">CSS Frameworks</span>
+                        </div>
+                        <div class="resources">
+                            <h4>Resources:</h4>
+                            <ul>
+                                <li><a href="https://web.dev/learn/css/" target="_blank">Web.dev CSS</a></li>
+                                <li><a href="https://www.smashingmagazine.com/category/css/" target="_blank">Smashing Magazine CSS</a></li>
+                                <li><a href="https://caniuse.com/" target="_blank">Can I Use</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tips-section">
+            <h2><i class="fas fa-lightbulb"></i> Essential Learning Tips</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <h3><i class="fas fa-code"></i> Practice Daily</h3>
+                    <p>Code every day, even if it's just for 15 minutes. Build small projects to reinforce concepts.</p>
+                </div>
+                <div class="tip-card">
+                    <h3><i class="fas fa-bug"></i> Embrace Debugging</h3>
+                    <p>Learn to use browser DevTools effectively. Understanding how to inspect and debug CSS is crucial.</p>
+                </div>
+                <div class="tip-card">
+                    <h3><i class="fas fa-project-diagram"></i> Build Real Projects</h3>
+                    <p>Apply your knowledge by creating complete websites. Start with clones of existing sites.</p>
+                </div>
+                <div class="tip-card">
+                    <h3><i class="fas fa-users"></i> Join the Community</h3>
+                    <p>Participate in forums like CSS-Tricks, Stack Overflow, and GitHub discussions.</p>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Remember: CSS mastery comes with consistent practice and building real projects!</p>
+            <p>Happy coding! <i class="fas fa-code"></i></p>
+        </footer>
+    </div>
+</body>
+</html>
+
