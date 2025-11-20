@@ -8,4 +8,4 @@ function multiply (a,b){
     return a*b;
 }
 
-export default add,substract,multiply;
+export {add,substract,multiply};
